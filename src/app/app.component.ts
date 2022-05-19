@@ -1,0 +1,104 @@
+import { Component, ViewChild } from '@angular/core';
+import { webSocket } from 'rxjs/webSocket';
+import { DataService } from './services/data.service';
+import { Observable } from 'rxjs';
+import { of } from 'rxjs';
+import { UIChart } from 'primeng/chart';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
+})
+export class AppComponent {
+  stageData = []
+  title = 'client-angular';
+  message = 'Hello';
+  barData$: Observable<any>;
+  @ViewChild('chart', {static: false}) chart: UIChart;
+
+  constructor(private service: DataService) {
+  }
+
+  ngOnInit() {
+    this.stageData.push(
+      {stage: 1, from: 1, to: 2, interutted: true, completed: false},
+      {stage: 2, from: 1, to: 2, interutted: true, completed: false},
+      {stage: 3, from: 1, to: 2, interutted: true, completed: false},
+      {stage: 4, from: 1, to: 2, interutted: false, completed: true},
+      {stage: 1, from: 2, to: 1, interutted: false, completed: false},
+    )
+    console.log(this.stageData)
+  }
+
+  sendToServer($event) {
+    // this.subject.next(this.message);
+    this.service.connect().error({code: 4000, reason: 'I think our app just broke!'});
+    
+  }
+  unsubscribe($event) {
+    this.service.connect().unsubscribe();
+  }
+
+  subscribe($event) {
+    this.service.connect().subscribe();
+  }
+
+  getProgressBarData(value: any) {
+    return (value/4) * 100
+  }
+  getStatusOfVillageCssMargin(value: any) {
+    return '0%'
+    if (value === 1) {
+      return '0%'
+    } else if (value === 2) {
+      return '25%'
+    } else if (value === 3) {
+      return '75%'
+    } else if (value === 4) {
+      return '100%'
+    }
+  }
+  getStatusOfVillage(value: any) {
+    if (value === 1) {
+      return 'At General 1'
+    } else if (value === 2) {
+      return 'At Village boundry'
+    } else if (value === 3) {
+      return 'Village Passed'
+    } else if (value === 4) {
+      return 'At General 2'
+    }
+  }
+  getStatusOfVillage1(value: any) {
+    if (value === 1) {
+      return 'At General 2'
+    } else if (value === 2) {
+      return 'Village Passed'
+    } else if (value === 3) {
+      return 'At Village boundry'
+    } else if (value === 4) {
+      return 'At General 1'
+    }
+  }
+  getStatusOfVillageCssMargin1(value: any) {
+    if (value === 1) {
+      return '100%'
+    } else if (value === 2) {
+      return '75%'
+    } else if (value === 3) {
+      return '25%'
+    } else if (value === 4) {
+      return '0%'
+    }
+  }
+
+  getColor(interuption: any) {
+    if(interuption== true) {
+      return '#FF0000'
+    } else {
+      return '#488aff'
+    }
+
+  }
+}

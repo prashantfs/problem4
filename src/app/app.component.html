@@ -1,0 +1,93 @@
+<div class="container" style="margin-top: 50px">
+  <div class="row">
+    <div class="col-3">
+      <img
+        style="position: relative !important; float: right !important"
+        src="https://www.pngall.com/wp-content/uploads/4/Computer-Monitor-PNG-File.png"
+        alt=""
+        width="50px"
+        height="50px"
+      />
+    </div>
+    <div class="col-6">
+      <p style="text-align: center">< Communication ></p>
+      <hr />
+    </div>
+
+    <div
+      class="col-3"
+      style="position: relative !important; float: right !important"
+    >
+      <img
+        src="https://www.pngall.com/wp-content/uploads/4/Computer-Monitor-PNG-File.png"
+        alt=""
+        width="50px"
+        height="50px"
+      />
+    </div>
+  </div>
+</div>
+
+<ng-container *ngFor="let ld of stageData">
+  {{ld.from}}
+  <div *ngIf="ld.from == '1' && ld.from === 1">
+    <div class="row a">
+      <div class="col-3">
+        <img
+          style="position: relative !important; float: right !important"
+          src="assets/right.jpeg"
+          alt=""
+          width="35px"
+          height="35px"
+        />
+      </div>
+      <div class="col-6">
+        <p [style.margin-left]="getStatusOfVillageCssMargin(ld.stage)">{{getStatusOfVillage(ld.stage)}}</p>
+        <progress-bar [color]="getColor(ld.interutted)" [progress]="getProgressBarData(ld.stage)"></progress-bar>
+        <hr />
+      </div>
+  
+      <div
+        class="col-3"
+        style="position: relative !important; float: right !important"
+      >
+        <img
+          src="assets/received.png"
+          alt=""
+          width="35px"
+          height="35px"
+        />
+      </div>
+    </div>
+  </div>
+  <div *ngIf="ld.from == '2' && ld.from === 2">
+    <div class="row a">
+      <div class="col-3">
+        <img
+          style="position: relative !important; float: right !important"
+          src="assets/received.png"
+          alt=""
+          width="35px"
+          height="35px"
+        />
+      </div>
+      <div class="col-6">
+        <p [style.margin-right]="getStatusOfVillageCssMargin1(ld.stage)">{{getStatusOfVillage1(ld.stage)}}</p>
+        <progress-bar dir="rtl" [color]="getColor(ld.interutted)" [progress]="getProgressBarData(ld.stage)"></progress-bar>
+      </div>
+  
+      <div
+        class="col-3"
+        style="position: relative !important; float: right !important"
+      >
+        <img
+          src="assets/left.jpeg"
+          alt=""
+          width="35px"
+          height="35px"
+        />
+      </div>
+    </div>
+  </div>
+</ng-container>
+
