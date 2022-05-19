@@ -37,8 +37,8 @@ import {ProgressBarModule} from "angular-progress-bar"
     ChartModule,
     ProgressBarModule,
     HttpClientModule,
-    StoreModule.forRoot(appReducers),
-    EffectsModule.forRoot([TransactionEffects]),
+    // StoreModule.forRoot(appReducers),
+    // EffectsModule.forRoot([TransactionEffects]),
 
   ],
   providers: [],
