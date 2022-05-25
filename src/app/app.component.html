@@ -29,12 +29,12 @@
 </div>
 
 <ng-container *ngFor="let ld of stageData">
-  {{ld.from}}
-  <div *ngIf="ld.from == '1' && ld.from === 1">
+  <!-- {{ld.sender}} -->
+  <div *ngIf="ld.sender == 'General A' || ld.sender === 'General A'">
     <div class="row a">
       <div class="col-3">
         <img
-          style="position: relative !important; float: right !important"
+          style="position: relative !important; float: right !important; float: right;"
           src="assets/right.jpeg"
           alt=""
           width="35px"
@@ -42,8 +42,8 @@
         />
       </div>
       <div class="col-6">
-        <p [style.margin-left]="getStatusOfVillageCssMargin(ld.stage)">{{getStatusOfVillage(ld.stage)}}</p>
-        <progress-bar [color]="getColor(ld.interutted)" [progress]="getProgressBarData(ld.stage)"></progress-bar>
+        <p [style.margin-left]="getStatusOfVillageCssMargin(ld.stage)">{{getStatusOfVillage(ld.message)}}</p>
+        <progress-bar [color]="getColor(ld.interrupted)" [progress]="getProgressBarData(ld.stage)"></progress-bar>
         <hr />
       </div>
   
@@ -60,11 +60,11 @@
       </div>
     </div>
   </div>
-  <div *ngIf="ld.from == '2' && ld.from === 2">
+  <div *ngIf="ld.sender == 'General B' || ld.sender === 'General B'">
     <div class="row a">
       <div class="col-3">
         <img
-          style="position: relative !important; float: right !important"
+          style="position: relative !important; float: right !important; float: right;"
           src="assets/received.png"
           alt=""
           width="35px"
@@ -72,8 +72,8 @@
         />
       </div>
       <div class="col-6">
-        <p [style.margin-right]="getStatusOfVillageCssMargin1(ld.stage)">{{getStatusOfVillage1(ld.stage)}}</p>
-        <progress-bar dir="rtl" [color]="getColor(ld.interutted)" [progress]="getProgressBarData(ld.stage)"></progress-bar>
+        <p [style.margin-right]="getStatusOfVillageCssMargin1(ld.stage)">{{getStatusOfVillage1(ld.message)}}</p>
+        <progress-bar dir="rtl" [color]="getColor(ld.interrupted)" [progress]="getProgressBarData(ld.stage)"></progress-bar>
       </div>
   
       <div
