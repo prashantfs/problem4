@@ -45,7 +45,7 @@ export class AppComponent {
   }
 
   async getDAta() {
-    let tempdata = await this.http.get<any>("https://1f47-27-4-102-9.in.ngrok.io/getMessage").toPromise()
+    let tempdata = await this.http.get<any>("https://61ff-27-4-102-9.in.ngrok.io/getMessage").toPromise()
     console.log(tempdata)
     this.stageData = tempdata
   }
