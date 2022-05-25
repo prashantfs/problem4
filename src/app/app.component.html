@@ -44,7 +44,7 @@
         />
       </div>
       <div class="col-6">
-        <p [style.margin-left]="getStatusOfVillageCssMargin(ld.stage)">{{getStatusOfVillage(ld.message)}}</p>
+        <p >{{getStatusOfVillage(ld.message)}}</p>
         <progress-bar [color]="getColor(ld.interrupted)" [progress]="getProgressBarData(ld.stage)"></progress-bar>
         <hr />
       </div>
@@ -77,7 +77,7 @@
         />
       </div>
       <div class="col-6">
-        <p [style.margin-right]="getStatusOfVillageCssMargin1(ld.stage)">{{getStatusOfVillage1(ld.message)}}</p>
+        <p >{{getStatusOfVillage1(ld.message)}}</p>
         <progress-bar dir="rtl" [color]="getColor(ld.interrupted)" [progress]="getProgressBarData(ld.stage)"></progress-bar>
       </div>
   
